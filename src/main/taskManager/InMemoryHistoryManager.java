@@ -50,6 +50,7 @@ public class InMemoryHistoryManager implements HistoryManager {
             result.add(current.getData());
             current = current.getNext();
         }
+        Collections.reverse(result);
         return result;
     }
 

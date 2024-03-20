@@ -9,36 +9,35 @@ import java.util.List;
 
 public interface TaskManager {
 
-    public void saveSingleTask(Task singleTask);
+     void saveSingleTask(Task singleTask);
 
-    public void updateSingleTask(Task singleTask);
+     void updateSingleTask(Task singleTask);
 
-    public Task getSingleTaskById(Integer taskId);
+     Task getSingleTaskById(Integer taskId);
 
-    public void deleteSingleTask(Integer taskId);
+     void deleteSingleTask(Integer taskId);
 
-    public void saveSubTask(SubTask subTask);
+     void saveSubTask(SubTask subTask);
 
-    public void updateSubTask(SubTask subTask);
-    public Task getSubTaskById(Integer taskId);
+     void updateSubTask(SubTask subTask);
+     Task getSubTaskById(Integer taskId);
 
-    public void deleteSubTaskById(Integer subTaskId);
+     void deleteSubTaskById(Integer subTaskId);
 
-    public void saveEpicTask(Task epicTask);
-    public void updateEpicTask(EpicTask epicTask);
-    public Task getEpicTaskById(Integer epicId);
+     void saveEpicTask(Task epicTask);
+     void updateEpicTask(EpicTask epicTask);
+     Task getEpicTaskById(Integer epicId);
 
-    public void deleteEpicTaskById(Integer epicId);
-    public List<SubTask> getEpicSubTasksById(Integer epicId);
-    public List<Task> getAllSingleTask();
-    public List<Task> getAllSubtaskTask();
+     void deleteEpicTaskById(Integer epicId);
+     List<SubTask> getEpicSubTasksById(Integer epicId);
+     List<Task> getAllSingleTask();
+     List<Task> getAllSubtaskTask();
 
-    public List<Task> getAllEpicTask();
-    public void deleteAllSingleTask();
-    public void deleteAllSubTask();
-    public void deleteAllEpicTask();
-    public ArrayList<Task> getTaskById(List<Integer> taskIds);
+     List<Task> getAllEpicTask();
+     void deleteAllSingleTask();
+     void deleteAllSubTask();
+     void deleteAllEpicTask();
 
-    public List<Task> getHistory();
+     List<Task> getHistory();
 
 }

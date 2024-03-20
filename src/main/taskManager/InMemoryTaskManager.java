@@ -41,14 +41,14 @@ public class InMemoryTaskManager implements TaskManager{
         historyManager.add(tasks.get(taskId));
         return tasks.get(taskId);
     }
-
+    @Override
     public void deleteSingleTask(Integer taskId) {
         if (tasks.containsKey(taskId)) {
             tasks.remove(taskId);
         }
         historyManager.remove(taskId);
     }
-
+    @Override
     public void saveSubTask(SubTask subTask) {
         subTask.setId(taskIdGenerator.getNextFreeId());
         tasks.put(subTask.getId(), subTask);
@@ -63,7 +63,7 @@ public class InMemoryTaskManager implements TaskManager{
         epicTask.setSubTasks(list);
         updateEpicTask(epicTask);
     }
-
+    @Override
     public void updateSubTask(SubTask subTask) {
         tasks.put(subTask.getId(), subTask);
 
@@ -98,7 +98,7 @@ public class InMemoryTaskManager implements TaskManager{
 
         updateEpicTask(epic);
     }
-
+    @Override
     public Task getSubTaskById(Integer taskId) {
         if (!tasks.containsKey(taskId)) {
             System.out.println("Такой сабтаски нет");
@@ -107,7 +107,7 @@ public class InMemoryTaskManager implements TaskManager{
         historyManager.add(tasks.get(taskId));
         return tasks.get(taskId);
     }
-
+    @Override
     public void deleteSubTaskById(Integer subTaskId) {
         if (tasks.containsKey(subTaskId)) {
             SubTask subTask = (SubTask) tasks.get(subTaskId);
@@ -129,17 +129,17 @@ public class InMemoryTaskManager implements TaskManager{
         historyManager.remove(subTaskId);
 
     }
-
+    @Override
 
     public void saveEpicTask(Task epicTask) {
         epicTask.setId(taskIdGenerator.getNextFreeId());
         tasks.put(epicTask.getId(), epicTask);
     }
-
+    @Override
     public void updateEpicTask(EpicTask epicTask) {
         tasks.put(epicTask.getId(), epicTask);
     }
-
+    @Override
     public Task getEpicTaskById(Integer epicId) {
         if (!tasks.containsKey(epicId)) {
             return null;
@@ -148,7 +148,7 @@ public class InMemoryTaskManager implements TaskManager{
         return tasks.get(epicId);
 
     }
-
+    @Override
     public void deleteEpicTaskById(Integer epicId) {
 
         EpicTask epic = (EpicTask) tasks.get(epicId);
@@ -167,7 +167,7 @@ public class InMemoryTaskManager implements TaskManager{
         }
         historyManager.remove(epicId);
     }
-
+    @Override
     public List<SubTask> getEpicSubTasksById(Integer epicId) {
         if (!tasks.containsKey(epicId)) {
             return null;
@@ -177,7 +177,7 @@ public class InMemoryTaskManager implements TaskManager{
 
         return epicTask.getSubTasks();
     }
-
+    @Override
     public List<Task> getAllSingleTask() {
         List<Task> allTasks = new ArrayList<>();
 
@@ -188,7 +188,7 @@ public class InMemoryTaskManager implements TaskManager{
         }
         return allTasks;
     }
-
+    @Override
     public List<Task> getAllSubtaskTask() {
         List<Task> allTasks = new ArrayList<>();
 
@@ -199,7 +199,7 @@ public class InMemoryTaskManager implements TaskManager{
         }
         return allTasks;
     }
-
+    @Override
     public List<Task> getAllEpicTask() {
         List<Task> allTasks = new ArrayList<>();
 
@@ -210,7 +210,7 @@ public class InMemoryTaskManager implements TaskManager{
         }
         return allTasks;
     }
-
+    @Override
     public void deleteAllSingleTask() {
 
         for (Task value : tasks.values()) {
@@ -219,7 +219,7 @@ public class InMemoryTaskManager implements TaskManager{
             }
         }
     }
-
+    @Override
     public void deleteAllSubTask() {
 
         for (Task value : tasks.values()) {
@@ -228,7 +228,7 @@ public class InMemoryTaskManager implements TaskManager{
             }
         }
     }
-
+    @Override
     public void deleteAllEpicTask() {
 
         for (Task value : tasks.values()) {
@@ -236,15 +236,6 @@ public class InMemoryTaskManager implements TaskManager{
                 tasks.remove(value.getId());
             }
         }
-    }
-
-
-    public ArrayList<Task> getTaskById(List<Integer> taskIds) {
-        ArrayList<Task> tasks = new ArrayList<>();
-        for (int id : taskIds) {
-            tasks.add(this.tasks.get(id));
-        }
-        return tasks;
     }
 
     @Override

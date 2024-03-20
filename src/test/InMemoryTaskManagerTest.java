@@ -19,7 +19,6 @@ public class InMemoryTaskManagerTest {
     public void beforeEach() {
         managers = new Managers();
         inMemoryTaskManager = managers.getDefault();
-
     }
 
     @Test
@@ -53,13 +52,11 @@ public class InMemoryTaskManagerTest {
 
     @Test
     void shouldCheckUtilityClassReturnsInitializedAnReadyForUseManagers() {
-        Managers managers = new Managers();
         Assertions.assertNotNull(managers.getDefault());
     }
 
     @Test
     void shouldCheckThatInMemoryManagerAddTasksAndFindThemByById() {
-
         Task task1 = new SingleTask("SingleTask1", "description1");
         inMemoryTaskManager.saveSingleTask(task1);
         Task task = inMemoryTaskManager.getSingleTaskById(1);
@@ -72,7 +69,9 @@ public class InMemoryTaskManagerTest {
         inMemoryTaskManager.saveSingleTask(task1);
         inMemoryTaskManager.getSingleTaskById(1);
         inMemoryTaskManager.getSingleTaskById(1);
-        Assertions.assertEquals(2, inMemoryTaskManager.getHistory().size());
+        Assertions.assertEquals(1, inMemoryTaskManager.getHistory().size());
+
+
     }
 }
 
