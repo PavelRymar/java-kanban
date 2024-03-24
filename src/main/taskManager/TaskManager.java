@@ -5,6 +5,7 @@ import main.taskType.SubTask;
 import main.taskType.Task;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public interface TaskManager {
@@ -39,5 +40,7 @@ public interface TaskManager {
      void deleteAllEpicTask();
 
      List<Task> getHistory();
+
+     HashMap<Integer, Task> getTasks();
 
 }

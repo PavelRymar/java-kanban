@@ -130,7 +130,6 @@ public class InMemoryTaskManager implements TaskManager{
 
     }
     @Override
-
     public void saveEpicTask(Task epicTask) {
         epicTask.setId(taskIdGenerator.getNextFreeId());
         tasks.put(epicTask.getId(), epicTask);
@@ -245,6 +244,10 @@ public class InMemoryTaskManager implements TaskManager{
 
     public HistoryManager getHistoryManager() {
         return historyManager;
+    }
+    @Override
+    public HashMap<Integer, Task> getTasks() {
+        return tasks;
     }
 
     @Override
